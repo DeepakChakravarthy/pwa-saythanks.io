@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {# <link rel="stylesheet" href="{{ url_for('static', filename='style.css') #}
+    <title>SayThanks.io &#9728; {% block title %}{% endblock %} </title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope" rel="stylesheet">
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/skeleton.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/saythanks.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/carbonads.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.modal.min.css') }}">
+    <link rel ="manifest" href="{{url_for('static',filename='manifest.json')}}"/>
+     <!-- Favicon
+     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/owly.ico') }}">
+     <link rel="mask-icon" href="{{ url_for('static', filename='images/owly.svg') }}" color="green">
+
+     <!-- jQuery!
+     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script src="{{ url_for('static', filename='js/jquery.autogrowtextarea.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/jquery.simplyCountable.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/jquery.modal.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+     <script src="{{url_for('static',filename='app.js')}}"></script>
+     <link rel = "stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+    {% block extra_head %}
+    {% endblock %}
+
+</head>
+<body onload="setSelectedFont();">
+<div class="offline-notification">You are Offline Please Check Your Connection </div>
+<div class="container">
+<h1><a href="/"><img id="eve" src="{{ url_for('static', filename='images/owly.svg') }}" alt="Eve the Owl"></a> The <strong>‘</strong><a href="/">Say Thanks</a><strong>’</strong> Project<span class="green"><strong>.</strong></span></h1>
+<hr>
+
+<div class="content">{% block content %}{% endblock %}</div>
+
+<div id="footer">
+      {% block footer %}
+      &copy; 2021. To create a new github issue, click <a href="https://github.com/BlitzKraft/saythanks.io/issues/new" target="_blank" rel="noopener noreferrer">here</a>.
+ A <a href="https://kennethreitz.org/">Kenneth Reitz</a> Project.
+      {% endblock %}
+    </div>
+
+</div>
+
+{# GitHub Ribbon #}
+
+<a href="https://github.com/BlitzKraft/saythanks.io/issues/new"><img style="position: absolute; top: 0; right: 10; border: 0; width="150" height="150" " src="https://photos.app.goo.gl/3Hu1iu44nxMv46RM7" alt="Feed_Back" ></a>
+
+<a href="https://github.com/BlitzKraft/saythanks.io"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+
+{# Gaug.es #}
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '583360704b2ffa35480003fd');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://d36ee2fcip1434.cloudfront.net/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+
+  function fontforinbox(selectBox) {
+   var op = selectBox.options[selectBox.selectedIndex];
+   var r = document.querySelector(':root');
+   localStorage.setItem("selectedFont",op.text);
+   localStorage.setItem("selectedIndex", selectBox.selectedIndex);
+   var localFont = localStorage.getItem("selectedFont"); 
+   if( localFont === 'Regular'){
+     r.style.setProperty('--customfont', "'Annie Use Your Telescope', 'SerendityFont', cursive");
+   }
+   else{
+     r.style.setProperty('--customfont', localFont);	
+   }
+}
+function setSelectedFont() {
+  selectBox = document.getElementById('fontstyle');
+   var r = document.querySelector(':root');
+   var localFont = localStorage.getItem("selectedFont");
+   selectBox.selectedIndex = localStorage.getItem("selectedIndex");
+   if( localFont === 'Regular'){
+     r.style.setProperty('--customfont', "'Annie Use Your Telescope', 'SerendityFont', cursive");
+   }
+   else{
+     r.style.setProperty('--customfont', localFont);	
+   }
+}
+</script>
+</body>
+</html>

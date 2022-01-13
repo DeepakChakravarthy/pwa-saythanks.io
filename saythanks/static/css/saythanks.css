@@ -1,0 +1,103 @@
+/* The Sun icon in the header should not have an underline */
+@font-face {
+    /* HuiFont is a Japanese handwriting free font.
+       http://hp.vector.co.jp/authors/VA039499/ */
+    font-family: 'SerendityFont';
+    src: url('/static/fonts/SerendityScript.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    
+    /* HuiFont is a Japanese handwriting free font.
+       http://hp.vector.co.jp/authors/VA039499/ */
+    /* font-family: 'HuiFont'; */
+    /* src: url('/static/fonts/HuiFont.woff2') format('woff2'); */
+    /* font-weight: normal; */
+    /* font-style: normal; */
+}
+
+
+:root{
+    --customfont: 'Annie Use Your Telescope', 'SerendityFont', cursive;
+   }    
+
+h1 a {
+    text-decoration: none;
+}
+
+.u-textcenter {
+  text-align: center;
+}
+
+button {
+    overflow: hidden!important;
+}
+
+#badge-modal textarea{
+  font-size: 13px;
+}
+
+@media (max-width: 775px) {
+  .button {
+    display: block;
+    margin: 1rem auto;
+  }
+}
+
+.note {
+    font-family: 'Annie Use Your Telescope', 'SerendityFont', cursive!important;
+    /*font-family: 'Annie Use Your Telescope', 'HuiFont', cursive!important; */
+    font-size: 2.35rem;
+    white-space: pre-wrap!important;
+}
+   
+.notebodyfont {
+    font-family: var(--customfont);
+    font-size: 2.35rem;
+    white-space: pre-wrap!important;
+}
+
+.noteinput {
+    height: 6em;
+}
+
+
+.button-primary {
+    background-color: #3ac025!important;
+    border-color: #3ac025!important;
+}
+
+a {
+    color: #3ac025!important;
+}
+
+.green {
+    color: #3ac025!important;
+}
+
+.dark-green {
+    color: #208A13!important;
+}
+
+#eve {
+    height: 5rem;
+    margin-top: 0.2em;
+    color: green;
+}
+
+#eve-send {
+    height: 6rem;
+    margin-bottom: -4em;
+    color: green;
+}
+
+.auth0-lock-name:after {
+    content: ' (for SayThanks.io)';
+}
+
+.no-color {
+    color:none!important;
+}
+
+a.share {
+    text-decoration: none
+}

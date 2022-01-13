@@ -1,0 +1,92 @@
+{% extends "base.htm.j2" %}
+
+{% block title %}Say Thank You{% endblock %}
+
+{% block content %}
+
+
+<h4>Send a <strong class="green">Thank You</strong> note to <strong>{{ user }}</strong> about {{ topic }}!</h4>
+
+<table>
+<tr>
+<td>
+<label for= "Font Style"> Font Style : </label>
+</td>
+<td>
+<select name="Font Style" id="fontstyle" onchange="fontforinbox(this);" >
+    <option value="0">Regular</option>
+    <option value="1">Times New Roman</option>
+    <option value="2">Verdana</option>
+    <option value="3">Tahoma</option>
+    <option value="4">Georgia</option>  
+    <option value="5">Trebuchet MS</option>
+ </select>
+ </td>
+ </tr>
+ </table>
+<form class="form-horizontal" action="./{{ user }}/submit" method="post">
+
+
+<fieldset>
+
+<!-- Form Name -->
+<legend>❝ THANK YOU ❞ </legend>
+
+<!-- Textarea -->
+<div class="form-group">
+  <div class="col-md-4">
+    <textarea class="form-control u-full-width notebodyfont noteinput" id="body" name="body" autofocus placeholder="Dear {{ user }},&#10Thank you for..." required></textarea>
+  </div>
+</div>
+
+<h6>You have written <strong><span id=counter></span></strong> thoughtful words, so far… (shoot for 42!)</h6>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="byline">Sincerely, </label>
+  <div class="col-md-4">
+  <input class='notebodyfont' id="byline" class="u-full-width" name="byline" type="text" placeholder="{{ fake_name }}" class="form-control input-md">
+
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submit"></label>
+  <div class="col-md-4">
+    <button id="submit" name="submit" class="btn button-primary" type="submit">Send Note <img id="eve-send" src="{{ url_for('static', filename='images/owly.svg') }}" alt="Eve the Owl"> </button>
+  </div>
+</div>
+<h2>🝐</h2>
+</fieldset>
+</form>
+
+{# Have body auto-grow as users type. #}
+<script>
+  $("#body").autoGrow();
+  $('#body').simplyCountable({
+  counter: '#counter',
+  countType: 'words',
+  countDirection: 'up'
+});
+
+input = document.getElementById("byline");
+
+input.addEventListener("keyup", function(event) {
+   if (event.keyCode === 13 && event.ctrlKey) {    
+    event.preventDefault();
+    document.getElementById("submit").click();
+  }
+});
+textArea = document.getElementById("body");
+textArea.addEventListener("keyup", function(event) {
+   if (event.keyCode === 39) {      
+    event.preventDefault();
+    placeHolderText = textArea.placeholder.split(',');
+    textArea.innerText = `${placeHolderText[0]},                                                                                                                                  ${placeHolderText[1]}`;
+    textArea.setSelectionRange(0, placeHolderText.length);
+  }
+});
+</script>
+
+
+{% endblock %}
